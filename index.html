@@ -55,12 +55,88 @@ body, html {
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
+
+/* To hover text Bottom Tooltip w/ Top Arrow */
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0px dotted black;
+}
+
+.tooltip .tooltiptext1 {
+  visibility: hidden;
+  width: 50vw;
+  background-color: black;
+  color: #fff;
+  text-align: justify;
+  border-radius: 6px;
+  padding: 1vw 2vw;
+*/  
+  /* Position the tooltip */
+/*
+position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -10vw;
+*/  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+/*
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip:hover .tooltiptext1 {
+  visibility: visible;
+  opacity: 1;
+}
+*/
+
+/* For dropdown over the images */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  font-size: calc(10px + 0.4vw);
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 0px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: blue;
+  padding: 5px 5px;
+  text-decoration: underline;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.desc {
+  padding: 10px;
+  text-align: justify;
+}
+
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
 }
+
 </style>
 <body>
 
@@ -112,7 +188,7 @@ body, html {
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <!--p><b><i class="w3-margin-right"></i></b><font size=6px>&#119982</font></p-->
-      <img src="https://snehilverma41.github.io/avatar_hat.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="350" height="333">
+      <img src="https://snehilverma41.github.io/avatar_hat.jpg" class="w3-round w3-image w3-opacity w3-hover-grayscale" alt="Photo of Me" width="350" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
@@ -150,78 +226,149 @@ body, html {
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">Projects</h3>
-  <p class="w3-center"><em>Here are some of my research and industrial projects.<br> Click on the images to view the corresponding reports/ presentations.</em></p><br>
+  <p class="w3-center"><em>Here are some of my research and industrial projects.<br> Hover over the images to know more.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center w3-margin-bottom">
-    <div class="w3-col m3">
-      <img src="https://snehilverma41.github.io/Project_icons/Slide16.PNG" style="width:100%" alt="Samsung ACL">
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide16.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="Samsung">
+      <div class="dropdown-content">
+     <div class="desc">Affiliated with several teams: PPA (Power, Performance, and Area), Architecture, ML Strategic Planning, and Workload Characterization.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://researcher.watson.ibm.com/researcher/files/us-ealtman/Snehil_Metrics_for_Machine_Learning_Workload_Benchmarking.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide14.PNG" style="width:100%" class="w3-hover-opacity" alt="Metrics ML"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide14.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="Metrics ML">
+      <div class="dropdown-content">
+     <a href="https://researcher.watson.ibm.com/researcher/files/us-ealtman/Snehil_Metrics_for_Machine_Learning_Workload_Benchmarking.pdf">Publication</a>
+     <a href="https://snehilverma41.github.io/Metrics_ML_FastPath19.pdf">Presentation</a>
+     <div class="desc"><b>FastPath, ISPASS'19</b>: Proposed a new metric for benchmarking ML workloads from the perspective of comparing training hardware.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://on-demand.gputechconf.com/gtc/2019/video/_/s9553-demystifying-deep-learning-infrastructure-choices-using-mlperf-benchmark-suite/"><img src="https://snehilverma41.github.io/Project_icons/Slide15.PNG" style="width:100%" class="w3-hover-opacity" alt="MLPerf GTC"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide15.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="MLPerf GTC">
+      <div class="dropdown-content">
+     <a href="https://on-demand.gputechconf.com/gtc/2019/video/_/s9553-demystifying-deep-learning-infrastructure-choices-using-mlperf-benchmark-suite/">Presentation</a>
+     <a href="https://github.com/UT-LCA/GTC19Slides/blob/master/DemystifyingHardwareInfrastructureChoicesforDeepLearningUsingMLPerf.pdf">Slides</a>
+     <div class="desc"><b>NVIDIA GTC'19</b>: An extensive study on the impact of hardware infrastructure choices on deep learning performance for training.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/PnL_Project_LongVersion.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide13.PNG" style="width:100%" class="w3-hover-opacity" alt="Kernel Fusion"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide13.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="Kernel Fusion">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/PnL_Project_LongVersion.pdf">Presentation (long)</a>
+     <a href="https://snehilverma41.github.io/PnL_Project_ShortVersion.pdf">Presentation (short)</a>
+     <div class="desc">Integrated our C++/CUDA extensions, performing kernel fusion, with PyTorch to optimize <i>Convolutional Seq-to-Seq Learning</i> model.</div>
+     </div>
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-margin-bottom">
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/Graph%20Placement%20Optimization%20on%20a%20Heterogeneous%20Memory%20System%20Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide12.PNG" style="width:100%" class="w3-hover-opacity" alt="HBM Ligra"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide12.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="HBM Ligra">
+     <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/Graph%20Placement%20Optimization%20on%20a%20Heterogeneous%20Memory%20System%20Report.pdf">Report</a>
+     <a href="https://snehilverma41.github.io/Graph%20Placement%20Optimization%20on%20a%20Heterogeneous%20Memory%20System.pdf">Presentation</a>
+     <div class="desc">Incorporated a novel fine-grain static graph placement technique on <i>Ligra</i> that takes decisions based on natural properties of the graph.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://www.microarch.org/cvp1/papers/Deshmukh.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide8.PNG" style="width:100%" class="w3-hover-opacity" alt="DFCM++"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide8.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="DFCM++">
+      <div class="dropdown-content">
+     <a href="https://www.microarch.org/cvp1/papers/Deshmukh.pdf">Publication</a>
+     <a href="https://www.microarch.org/cvp1/slides/DFCM_final.pptx">Presentation</a>
+     <a href="https://snehilverma41.github.io/DFCM++_Poster.pdf">Poster</a>
+     <div class="desc">Enhanced the existing DFCM predictor achieving an IPC improvement of 28.1% over the baseline and 40.2% over the base DFCM.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/Flexible_NVM.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide9.PNG" style="width:100%" class="w3-hover-opacity" alt="NVM"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide9.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="NVM">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/Flexible_NVM.pdf">Presentation</a>
+     <a href="https://snehilverma41.github.io/EE681_term_paper.pdf">Term Paper</a>
+     <div class="desc">Studied emerging flexible NVMs encompassing their operating principles and some common architectures. Additionally, performed a literature survey on various binary metal-oxide resistive switching RAMs, their switching mechanisms, designs, and electrical characteristics.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/TAMU_Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide1.PNG" style="width:100%" class="w3-hover-opacity" alt="CARP 2.0"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide1.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="CARP 2.0">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/TAMU_Report.pdf">Report</a>
+     <a href="https://snehilverma41.github.io/TAMU_ppt.pdf">Presentation (TAMU)</a>
+     <a href="https://snehilverma41.github.io/TAMU_IITK.pdf">Presentation (IITK)</a>
+     <div class="desc">Proposed and modeled Coherence-Aware Reuse Prediction on ZSim that achieved a speedup of 20% over LRU when evaluated on PARSEC benchmark suite.</div>
+     </div>
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-margin-bottom">
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/PLL_Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide2.PNG" style="width:100%" class="w3-hover-opacity" alt="PLL"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide2.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="PLL">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/PLL_Report.pdf">Report</a>
+     <a href="https://snehilverma41.github.io/PLL_UGP_Presentation.pdf">Presentation</a>
+     <div class="desc">Designed a stable PLL with low power linear Current Starved VCO which consumed a maximum power of 182uW.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <img src="https://snehilverma41.github.io/Project_icons/Slide3.PNG" style="width:100%" alt="LNA">
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide3.PNG" style="width:100%; cursor:default" alt="LNA">
+      <div class="dropdown-content">
+     <div class="desc">Studied the noise cancellation techniques of inductorless LNAs, and effectively applied them to design a 2.4 GHz Inductorless LNA.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/EE681_Project_Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide10.PNG" style="width:100%" class="w3-hover-opacity" alt="Verilog"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide10.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="Verilog">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/EE681_Project_Report.pdf">Report</a>
+     <div class="desc">Implemented a threshold voltage based BSIM4-like model on Verilog-A and extracted parameters using IC-CAP simulation.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/EE610_Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide5.PNG" style="width:100%" class="w3-hover-opacity" alt="Folded Cascode"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide5.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="Folded Cascode">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/EE610_Report.pdf">Report</a>
+     <div class="desc">Employed adaptive biasing to design a two-stage folded cascode OTA suitable for large capacitive loads.</div>
+     </div>
     </div>
   </div>
 
   <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="https://snehilverma41.github.io/Project_icons/Slide11.PNG" style="width:100%" alt="DBMS">
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide11.PNG" style="width:100%; cursor:default" alt="DBMS">
+      <div class="dropdown-content">
+     <div class="desc">Designed a website implementing a miniature version of the railway inquiry system to handle standard queries.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/EE320_Term_paper.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide6.PNG" style="width:100%" class="w3-hover-opacity" alt="MIMO"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide6.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="MIMO">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/EE320_Term_paper.pdf">Term Paper</a>
+     <div class="desc">Conducted a literature survey on Multiple-Input Multiple-Output (MIMO) systems and its potential in 4G and 5G.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/EE654_Report.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide7.PNG" style="width:100%" class="w3-hover-opacity" alt="H_inf Controller"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide7.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="H_inf Controller">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/EE654_Report.pdf">Report</a>
+     <div class="desc">Designed a H&infin; controller and tuned it for desired performances in order to make the system as robust as possible.</div>
+     </div>
     </div>
 
-    <div class="w3-col m3">
-      <a href="https://snehilverma41.github.io/SASTR.pdf"><img src="https://snehilverma41.github.io/Project_icons/Slide4.PNG" style="width:100%" class="w3-hover-opacity" alt="SASTR"></a>
+    <div class="w3-col m3 dropdown">
+      <img src="https://snehilverma41.github.io/Project_icons/Slide4.PNG" style="width:100%; cursor:default" class="w3-hover-opacity" alt="SASTR">
+      <div class="dropdown-content">
+     <a href="https://snehilverma41.github.io/SASTR.pdf">Presentation</a>
+     <div class="desc">Built an all-terrain vehicle capable of autonomous navigation using Embedded Systems and Google Maps API.</div>
+     </div>
     </div>
   </div>
 </div>
@@ -254,7 +401,7 @@ body, html {
     </div>
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
-      	<br>
+        <br>
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> 2501 Speedway, EER 5.860, Austin, TX 78712<br>
         <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (+1) 737-217-5056<br>
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: snehilv@utexas.edu<br>
